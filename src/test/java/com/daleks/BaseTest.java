@@ -8,14 +8,22 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
-    SkipPage page = new SkipPage();
+    SkipPage skipPage = new SkipPage();
+    CataloguePage cataloguePage = new CataloguePage();
+    FiltersPage filtersPage = new FiltersPage();
+    BasketPage basketPage = new BasketPage();
+
 
     @BeforeEach
-    public void setUp() {
-        //closeWebDriver();
+    public void setUp() throws InterruptedException {
         Configuration.browserSize = null;
         Configuration.browser = Settings.class.getName();
         open();
+        skipPage.clickChooseCountryBtn();
+        skipPage.clickSkipBtn();
+        cataloguePage.clickCatalogueBtn();
+        cataloguePage.clickHomeBtn();
+        cataloguePage.clickMirrorBtn();
     }
 
     @AfterEach

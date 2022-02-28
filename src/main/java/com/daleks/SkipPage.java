@@ -1,19 +1,24 @@
 package com.daleks;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.selector.ByText;
 import io.appium.java_client.MobileBy;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class SkipPage {
 
-    /*@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.Button")
-    SelenideElement skipButton;*/
+    private SelenideElement chooseCountryButton = $(MobileBy.xpath("//android.view.ViewGroup[1]/android.widget.RadioButton"));
 
-    private SelenideElement skipButton = $(MobileBy.id("tt"));
+    private SelenideElement skipButton = $(MobileBy.id("com.wildberries.ru:id/skip"));
 
-    public void clickSkipBtn() {
+    public void clickChooseCountryBtn() throws InterruptedException {
+        Thread.sleep(2000);
+        chooseCountryButton.click();
+    }
+
+    public void clickSkipBtn() throws InterruptedException {
+        Thread.sleep(2000);
         skipButton.click();
     }
+
 }
